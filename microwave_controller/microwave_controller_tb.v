@@ -24,7 +24,7 @@ module microwave_controller_tb;
     end
 
     initial begin
-        repeat(30000) begin
+        repeat(40000) begin
             #5 clock_tb = ~clock_tb;
         end
     end
@@ -59,7 +59,7 @@ module microwave_controller_tb;
         #500 keypad_tb = 10'b00_0000_0000;
         #500 keypad_tb = 10'b00_0000_0010;
         #500 keypad_tb = 10'b00_0000_0000;
-        #500 keypad_tb = 10'b00_0001_0000;
+        #500 keypad_tb = 10'b10_0001_0000;
         #500 keypad_tb = 10'b00_0000_0000;
         #500 keypad_tb = 10'b00_0000_0001;
         #500 keypad_tb = 10'b00_0000_0000;
