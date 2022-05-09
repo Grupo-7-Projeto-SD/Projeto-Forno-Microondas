@@ -1,7 +1,10 @@
-`include "priority_encoder.v"
-`include "frequency_divide_by_100.v"
-`include "debounce_delay.v"
-`include "mux_2x1.v"
+`include "./timer_input_control/priority_encoder.v"
+`include "./timer_input_control/frequency_divide_by_100.v"
+`include "./timer_input_control/debounce_delay.v"
+`include "./timer_input_control/mux_2x1.v"
+
+// manter apenas os nomes dos arquivos nos caminhos
+// ao compilar no diretório ./microwave_controller/timer_input_control
 
 module timer_control_level2(
     keypad, enable_n, clock_100Hz,

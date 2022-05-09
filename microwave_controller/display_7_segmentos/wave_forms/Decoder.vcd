@@ -1,0 +1,64 @@
+$date
+	Mon May 09 00:28:43 2022
+$end
+$version
+	Icarus Verilog
+$end
+$timescale
+	1ps
+$end
+$scope module Decoder_tb $end
+$var wire 7 ! BINout_tb [6:0] $end
+$var reg 4 " BCDin_tb [3:0] $end
+$scope module uut $end
+$var wire 4 # BCDin [3:0] $end
+$var reg 7 $ BINout [6:0] $end
+$upscope $end
+$upscope $end
+$enddefinitions $end
+#0
+$dumpvars
+b1111000 $
+b111 #
+b111 "
+b1111000 !
+$end
+#10000
+b110000 !
+b110000 $
+b11 "
+b11 #
+#20000
+b10000 !
+b10000 $
+b1001 "
+b1001 #
+#30000
+b1111001 !
+b1111001 $
+b1 "
+b1 #
+#40000
+b1000000 !
+b1000000 $
+b0 "
+b0 #
+#50000
+b1111111 !
+b1111111 $
+bx "
+bx #
+#60000
+bz "
+bz #
+#70000
+b11001 !
+b11001 $
+b100 "
+b100 #
+#80000
+b100100 !
+b100100 $
+b10 "
+b10 #
+#90000

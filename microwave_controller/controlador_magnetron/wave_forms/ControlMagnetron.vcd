@@ -1,0 +1,72 @@
+$date
+	Mon May 09 00:17:06 2022
+$end
+$version
+	Icarus Verilog
+$end
+$timescale
+	1ps
+$end
+$scope module ControlMagnetron_tb $end
+$var wire 1 ! mag_on_tb $end
+$var reg 1 " clearn_tb $end
+$var reg 1 # door_closed_tb $end
+$var reg 1 $ startn_tb $end
+$var reg 1 % stopn_tb $end
+$var reg 1 & timer_done_tb $end
+$scope module uut $end
+$var wire 1 " clearn $end
+$var wire 1 # door_closed $end
+$var wire 1 $ startn $end
+$var wire 1 % stopn $end
+$var wire 1 & timer_done $end
+$var wire 1 ' set $end
+$var wire 1 ( reset $end
+$var wire 1 ! mag_on $end
+$scope module U1 $end
+$var wire 1 " clearn $end
+$var wire 1 # door_closed $end
+$var wire 1 ( reset $end
+$var wire 1 ' set $end
+$var wire 1 $ startn $end
+$var wire 1 % stopn $end
+$var wire 1 & timer_done $end
+$upscope $end
+$scope module U2 $end
+$var wire 1 ( reset $end
+$var wire 1 ' set $end
+$var reg 1 ! q $end
+$upscope $end
+$upscope $end
+$upscope $end
+$enddefinitions $end
+#0
+$dumpvars
+1(
+0'
+0&
+1%
+1$
+0#
+1"
+0!
+$end
+#10000
+1#
+#20000
+1!
+0(
+1'
+0$
+#30000
+0!
+1(
+0'
+0%
+#40000
+0"
+1%
+#50000
+1&
+1"
+#60000

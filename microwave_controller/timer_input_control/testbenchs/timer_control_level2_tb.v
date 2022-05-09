@@ -2,7 +2,7 @@
 `include "timer_control_level2.v"
 
 // este módulo deve ser compilado a partir do diretório "/microwave_controller/timer_input_control"
-// devido ao uso de diferentes hierarquias de pastas
+// devido à hierarquia de pastas
 module timer_control_level2_tb;
 
     reg [9:0] keypad_tb;
