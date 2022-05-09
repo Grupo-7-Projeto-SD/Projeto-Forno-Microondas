@@ -1,0 +1,166 @@
+#! /c/Source/iverilog-install/bin/vvp
+:ivl_version "12.0 (devel)" "(s20150603-1110-g18392a46)";
+:ivl_delay_selection "TYPICAL";
+:vpi_time_precision - 12;
+:vpi_module "D:\iverilog\lib\ivl\system.vpi";
+:vpi_module "D:\iverilog\lib\ivl\vhdl_sys.vpi";
+:vpi_module "D:\iverilog\lib\ivl\vhdl_textio.vpi";
+:vpi_module "D:\iverilog\lib\ivl\v2005_math.vpi";
+:vpi_module "D:\iverilog\lib\ivl\va_math.vpi";
+S_0000020b4fba6fc0 .scope module, "ControlMagnetron_tb" "ControlMagnetron_tb" 2 6;
+ .timescale -9 -12;
+v0000020b4fbb2530_0 .var "clearn_tb", 0 0;
+v0000020b4fbb20d0_0 .var "door_closed_tb", 0 0;
+v0000020b4fbb2350_0 .net "mag_on_tb", 0 0, v0000020b4fbb18b0_0;  1 drivers
+v0000020b4fbb2490_0 .var "startn_tb", 0 0;
+v0000020b4fc09010_0 .var "stopn_tb", 0 0;
+v0000020b4fc0a2d0_0 .var "timer_done_tb", 0 0;
+S_0000020b4fba7150 .scope module, "uut" "ControlMagnetron" 2 11, 3 4 0, S_0000020b4fba6fc0;
+ .timescale -9 -12;
+    .port_info 0 /INPUT 1 "startn";
+    .port_info 1 /INPUT 1 "stopn";
+    .port_info 2 /INPUT 1 "clearn";
+    .port_info 3 /INPUT 1 "door_closed";
+    .port_info 4 /INPUT 1 "timer_done";
+    .port_info 5 /OUTPUT 1 "mag_on";
+v0000020b4fbb19f0_0 .net "clearn", 0 0, v0000020b4fbb2530_0;  1 drivers
+v0000020b4fbb1a90_0 .net "door_closed", 0 0, v0000020b4fbb20d0_0;  1 drivers
+v0000020b4fbb1b30_0 .net "mag_on", 0 0, v0000020b4fbb18b0_0;  alias, 1 drivers
+v0000020b4fbb2170_0 .net "reset", 0 0, L_0000020b4fc0a910;  1 drivers
+v0000020b4fbb1ef0_0 .net "set", 0 0, L_0000020b4fc0a9f0;  1 drivers
+v0000020b4fbb25d0_0 .net "startn", 0 0, v0000020b4fbb2490_0;  1 drivers
+v0000020b4fbb1f90_0 .net "stopn", 0 0, v0000020b4fc09010_0;  1 drivers
+v0000020b4fbb2030_0 .net "timer_done", 0 0, v0000020b4fc0a2d0_0;  1 drivers
+S_0000020b4fb6c050 .scope module, "U1" "Control" 3 10, 4 1 0, S_0000020b4fba7150;
+ .timescale -9 -12;
+    .port_info 0 /INPUT 1 "startn";
+    .port_info 1 /INPUT 1 "stopn";
+    .port_info 2 /INPUT 1 "clearn";
+    .port_info 3 /INPUT 1 "door_closed";
+    .port_info 4 /INPUT 1 "timer_done";
+    .port_info 5 /OUTPUT 1 "set";
+    .port_info 6 /OUTPUT 1 "reset";
+L_0000020b4fc0ad70 .functor NOT 1, v0000020b4fbb2490_0, C4<0>, C4<0>, C4<0>;
+L_0000020b4fc0a8a0 .functor AND 1, L_0000020b4fc0ad70, v0000020b4fbb20d0_0, C4<1>, C4<1>;
+L_0000020b4fc0a980 .functor NOT 1, v0000020b4fc09010_0, C4<0>, C4<0>, C4<0>;
+L_0000020b4fc0aad0 .functor NOT 1, v0000020b4fbb2530_0, C4<0>, C4<0>, C4<0>;
+L_0000020b4fc0ad00 .functor OR 1, L_0000020b4fc0a980, L_0000020b4fc0aad0, C4<0>, C4<0>;
+L_0000020b4fc0ab40 .functor OR 1, L_0000020b4fc0ad00, v0000020b4fc0a2d0_0, C4<0>, C4<0>;
+L_0000020b4fc0ade0 .functor NOT 1, L_0000020b4fc0ab40, C4<0>, C4<0>, C4<0>;
+L_0000020b4fc0a9f0 .functor AND 1, L_0000020b4fc0a8a0, L_0000020b4fc0ade0, C4<1>, C4<1>;
+L_0000020b4fc0a910 .functor NOT 1, L_0000020b4fc0a9f0, C4<0>, C4<0>, C4<0>;
+v0000020b4fb6c260_0 .net *"_ivl_0", 0 0, L_0000020b4fc0ad70;  1 drivers
+v0000020b4fbb9390_0 .net *"_ivl_10", 0 0, L_0000020b4fc0ab40;  1 drivers
+v0000020b4fb6c300_0 .net *"_ivl_12", 0 0, L_0000020b4fc0ade0;  1 drivers
+v0000020b4fb6c3a0_0 .net *"_ivl_2", 0 0, L_0000020b4fc0a8a0;  1 drivers
+v0000020b4fbb2710_0 .net *"_ivl_4", 0 0, L_0000020b4fc0a980;  1 drivers
+v0000020b4fbb1950_0 .net *"_ivl_6", 0 0, L_0000020b4fc0aad0;  1 drivers
+v0000020b4fbb23f0_0 .net *"_ivl_8", 0 0, L_0000020b4fc0ad00;  1 drivers
+v0000020b4fbb1bd0_0 .net "clearn", 0 0, v0000020b4fbb2530_0;  alias, 1 drivers
+v0000020b4fbb1810_0 .net "door_closed", 0 0, v0000020b4fbb20d0_0;  alias, 1 drivers
+v0000020b4fbb1c70_0 .net "reset", 0 0, L_0000020b4fc0a910;  alias, 1 drivers
+v0000020b4fbb2670_0 .net "set", 0 0, L_0000020b4fc0a9f0;  alias, 1 drivers
+v0000020b4fbb1d10_0 .net "startn", 0 0, v0000020b4fbb2490_0;  alias, 1 drivers
+v0000020b4fbb1db0_0 .net "stopn", 0 0, v0000020b4fc09010_0;  alias, 1 drivers
+v0000020b4fbb2210_0 .net "timer_done", 0 0, v0000020b4fc0a2d0_0;  alias, 1 drivers
+S_0000020b4fb6d070 .scope module, "U2" "LatchSR" 3 11, 5 1 0, S_0000020b4fba7150;
+ .timescale -9 -12;
+    .port_info 0 /INPUT 1 "set";
+    .port_info 1 /INPUT 1 "reset";
+    .port_info 2 /OUTPUT 1 "q";
+v0000020b4fbb18b0_0 .var "q", 0 0;
+v0000020b4fbb22b0_0 .net "reset", 0 0, L_0000020b4fc0a910;  alias, 1 drivers
+v0000020b4fbb1e50_0 .net "set", 0 0, L_0000020b4fc0a9f0;  alias, 1 drivers
+E_0000020b4fb6aeb0 .event anyedge, v0000020b4fbb1c70_0, v0000020b4fbb2670_0;
+    .scope S_0000020b4fb6d070;
+T_0 ;
+    %wait E_0000020b4fb6aeb0;
+    %load/vec4 v0000020b4fbb1e50_0;
+    %load/vec4 v0000020b4fbb22b0_0;
+    %inv;
+    %load/vec4 v0000020b4fbb18b0_0;
+    %and;
+    %or;
+    %assign/vec4 v0000020b4fbb18b0_0, 0;
+    %jmp T_0;
+    .thread T_0, $push;
+    .scope S_0000020b4fba6fc0;
+T_1 ;
+    %vpi_call 2 14 "$dumpfile", "./wave_forms/ControlMagnetron.vcd" {0 0 0};
+    %vpi_call 2 15 "$dumpvars", 32'sb00000000000000000000000000000000, S_0000020b4fba6fc0 {0 0 0};
+    %pushi/vec4 1, 0, 1;
+    %store/vec4 v0000020b4fbb2490_0, 0, 1;
+    %pushi/vec4 1, 0, 1;
+    %store/vec4 v0000020b4fc09010_0, 0, 1;
+    %pushi/vec4 1, 0, 1;
+    %store/vec4 v0000020b4fbb2530_0, 0, 1;
+    %pushi/vec4 0, 0, 1;
+    %store/vec4 v0000020b4fbb20d0_0, 0, 1;
+    %pushi/vec4 0, 0, 1;
+    %store/vec4 v0000020b4fc0a2d0_0, 0, 1;
+    %delay 10000, 0;
+    %pushi/vec4 1, 0, 1;
+    %store/vec4 v0000020b4fbb2490_0, 0, 1;
+    %pushi/vec4 1, 0, 1;
+    %store/vec4 v0000020b4fc09010_0, 0, 1;
+    %pushi/vec4 1, 0, 1;
+    %store/vec4 v0000020b4fbb2530_0, 0, 1;
+    %pushi/vec4 1, 0, 1;
+    %store/vec4 v0000020b4fbb20d0_0, 0, 1;
+    %pushi/vec4 0, 0, 1;
+    %store/vec4 v0000020b4fc0a2d0_0, 0, 1;
+    %delay 10000, 0;
+    %pushi/vec4 0, 0, 1;
+    %store/vec4 v0000020b4fbb2490_0, 0, 1;
+    %pushi/vec4 1, 0, 1;
+    %store/vec4 v0000020b4fc09010_0, 0, 1;
+    %pushi/vec4 1, 0, 1;
+    %store/vec4 v0000020b4fbb2530_0, 0, 1;
+    %pushi/vec4 1, 0, 1;
+    %store/vec4 v0000020b4fbb20d0_0, 0, 1;
+    %pushi/vec4 0, 0, 1;
+    %store/vec4 v0000020b4fc0a2d0_0, 0, 1;
+    %delay 10000, 0;
+    %pushi/vec4 0, 0, 1;
+    %store/vec4 v0000020b4fbb2490_0, 0, 1;
+    %pushi/vec4 0, 0, 1;
+    %store/vec4 v0000020b4fc09010_0, 0, 1;
+    %pushi/vec4 1, 0, 1;
+    %store/vec4 v0000020b4fbb2530_0, 0, 1;
+    %pushi/vec4 1, 0, 1;
+    %store/vec4 v0000020b4fbb20d0_0, 0, 1;
+    %pushi/vec4 0, 0, 1;
+    %store/vec4 v0000020b4fc0a2d0_0, 0, 1;
+    %delay 10000, 0;
+    %pushi/vec4 0, 0, 1;
+    %store/vec4 v0000020b4fbb2490_0, 0, 1;
+    %pushi/vec4 1, 0, 1;
+    %store/vec4 v0000020b4fc09010_0, 0, 1;
+    %pushi/vec4 0, 0, 1;
+    %store/vec4 v0000020b4fbb2530_0, 0, 1;
+    %pushi/vec4 1, 0, 1;
+    %store/vec4 v0000020b4fbb20d0_0, 0, 1;
+    %pushi/vec4 0, 0, 1;
+    %store/vec4 v0000020b4fc0a2d0_0, 0, 1;
+    %delay 10000, 0;
+    %pushi/vec4 0, 0, 1;
+    %store/vec4 v0000020b4fbb2490_0, 0, 1;
+    %pushi/vec4 1, 0, 1;
+    %store/vec4 v0000020b4fc09010_0, 0, 1;
+    %pushi/vec4 1, 0, 1;
+    %store/vec4 v0000020b4fbb2530_0, 0, 1;
+    %pushi/vec4 1, 0, 1;
+    %store/vec4 v0000020b4fbb20d0_0, 0, 1;
+    %pushi/vec4 1, 0, 1;
+    %store/vec4 v0000020b4fc0a2d0_0, 0, 1;
+    %delay 10000, 0;
+    %end;
+    .thread T_1;
+# The file index is used to find the file name in the following table.
+:file_names 6;
+    "N/A";
+    "<interactive>";
+    ".\testbenchs\ControlMagnetron_tb.v";
+    "./.\ControlMagnetron.v";
+    "./Control.v";
+    "./LatchSR.v";

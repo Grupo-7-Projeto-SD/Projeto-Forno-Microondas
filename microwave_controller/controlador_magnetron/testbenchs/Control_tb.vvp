@@ -1,0 +1,128 @@
+#! /c/Source/iverilog-install/bin/vvp
+:ivl_version "12.0 (devel)" "(s20150603-1110-g18392a46)";
+:ivl_delay_selection "TYPICAL";
+:vpi_time_precision - 12;
+:vpi_module "D:\iverilog\lib\ivl\system.vpi";
+:vpi_module "D:\iverilog\lib\ivl\vhdl_sys.vpi";
+:vpi_module "D:\iverilog\lib\ivl\vhdl_textio.vpi";
+:vpi_module "D:\iverilog\lib\ivl\v2005_math.vpi";
+:vpi_module "D:\iverilog\lib\ivl\va_math.vpi";
+S_000002cc129f4fc0 .scope module, "Control_tb" "Control_tb" 2 4;
+ .timescale -9 -12;
+v000002cc12a03680_0 .var "clearn_tb", 0 0;
+v000002cc12a02fa0_0 .var "door_closed_tb", 0 0;
+v000002cc12a03540_0 .net "reset_tb", 0 0, L_000002cc12a50d30;  1 drivers
+v000002cc12a03720_0 .net "set_tb", 0 0, L_000002cc12a508d0;  1 drivers
+v000002cc12a03cc0_0 .var "startn_tb", 0 0;
+v000002cc12a03ae0_0 .var "stopn_tb", 0 0;
+v000002cc12a03040_0 .var "timer_done_tb", 0 0;
+S_000002cc129f5150 .scope module, "uut" "Control" 2 9, 3 1 0, S_000002cc129f4fc0;
+ .timescale -9 -12;
+    .port_info 0 /INPUT 1 "startn";
+    .port_info 1 /INPUT 1 "stopn";
+    .port_info 2 /INPUT 1 "clearn";
+    .port_info 3 /INPUT 1 "door_closed";
+    .port_info 4 /INPUT 1 "timer_done";
+    .port_info 5 /OUTPUT 1 "set";
+    .port_info 6 /OUTPUT 1 "reset";
+L_000002cc129b6da0 .functor NOT 1, v000002cc12a03cc0_0, C4<0>, C4<0>, C4<0>;
+L_000002cc129b6e10 .functor AND 1, L_000002cc129b6da0, v000002cc12a02fa0_0, C4<1>, C4<1>;
+L_000002cc129b6e80 .functor NOT 1, v000002cc12a03ae0_0, C4<0>, C4<0>, C4<0>;
+L_000002cc129b6ef0 .functor NOT 1, v000002cc12a03680_0, C4<0>, C4<0>, C4<0>;
+L_000002cc129b6f60 .functor OR 1, L_000002cc129b6e80, L_000002cc129b6ef0, C4<0>, C4<0>;
+L_000002cc12a50a90 .functor OR 1, L_000002cc129b6f60, v000002cc12a03040_0, C4<0>, C4<0>;
+L_000002cc12a50b70 .functor NOT 1, L_000002cc12a50a90, C4<0>, C4<0>, C4<0>;
+L_000002cc12a508d0 .functor AND 1, L_000002cc129b6e10, L_000002cc12a50b70, C4<1>, C4<1>;
+L_000002cc12a50d30 .functor NOT 1, L_000002cc12a508d0, C4<0>, C4<0>, C4<0>;
+v000002cc12a0a9b0_0 .net *"_ivl_0", 0 0, L_000002cc129b6da0;  1 drivers
+v000002cc129bc3e0_0 .net *"_ivl_10", 0 0, L_000002cc12a50a90;  1 drivers
+v000002cc129b6b20_0 .net *"_ivl_12", 0 0, L_000002cc12a50b70;  1 drivers
+v000002cc129b6bc0_0 .net *"_ivl_2", 0 0, L_000002cc129b6e10;  1 drivers
+v000002cc129b6c60_0 .net *"_ivl_4", 0 0, L_000002cc129b6e80;  1 drivers
+v000002cc129b6d00_0 .net *"_ivl_6", 0 0, L_000002cc129b6ef0;  1 drivers
+v000002cc12a03b80_0 .net *"_ivl_8", 0 0, L_000002cc129b6f60;  1 drivers
+v000002cc12a039a0_0 .net "clearn", 0 0, v000002cc12a03680_0;  1 drivers
+v000002cc12a03900_0 .net "door_closed", 0 0, v000002cc12a02fa0_0;  1 drivers
+v000002cc12a03e00_0 .net "reset", 0 0, L_000002cc12a50d30;  alias, 1 drivers
+v000002cc12a03d60_0 .net "set", 0 0, L_000002cc12a508d0;  alias, 1 drivers
+v000002cc12a03a40_0 .net "startn", 0 0, v000002cc12a03cc0_0;  1 drivers
+v000002cc12a02f00_0 .net "stopn", 0 0, v000002cc12a03ae0_0;  1 drivers
+v000002cc12a03220_0 .net "timer_done", 0 0, v000002cc12a03040_0;  1 drivers
+    .scope S_000002cc129f4fc0;
+T_0 ;
+    %vpi_call 2 12 "$dumpfile", "../wave_forms/Control.vcd" {0 0 0};
+    %vpi_call 2 13 "$dumpvars", 32'sb00000000000000000000000000000000, S_000002cc129f4fc0 {0 0 0};
+    %pushi/vec4 1, 0, 1;
+    %store/vec4 v000002cc12a03cc0_0, 0, 1;
+    %pushi/vec4 1, 0, 1;
+    %store/vec4 v000002cc12a03ae0_0, 0, 1;
+    %pushi/vec4 1, 0, 1;
+    %store/vec4 v000002cc12a03680_0, 0, 1;
+    %pushi/vec4 0, 0, 1;
+    %store/vec4 v000002cc12a02fa0_0, 0, 1;
+    %pushi/vec4 0, 0, 1;
+    %store/vec4 v000002cc12a03040_0, 0, 1;
+    %delay 10000, 0;
+    %pushi/vec4 1, 0, 1;
+    %store/vec4 v000002cc12a03cc0_0, 0, 1;
+    %pushi/vec4 1, 0, 1;
+    %store/vec4 v000002cc12a03ae0_0, 0, 1;
+    %pushi/vec4 1, 0, 1;
+    %store/vec4 v000002cc12a03680_0, 0, 1;
+    %pushi/vec4 1, 0, 1;
+    %store/vec4 v000002cc12a02fa0_0, 0, 1;
+    %pushi/vec4 0, 0, 1;
+    %store/vec4 v000002cc12a03040_0, 0, 1;
+    %delay 10000, 0;
+    %pushi/vec4 0, 0, 1;
+    %store/vec4 v000002cc12a03cc0_0, 0, 1;
+    %pushi/vec4 1, 0, 1;
+    %store/vec4 v000002cc12a03ae0_0, 0, 1;
+    %pushi/vec4 1, 0, 1;
+    %store/vec4 v000002cc12a03680_0, 0, 1;
+    %pushi/vec4 1, 0, 1;
+    %store/vec4 v000002cc12a02fa0_0, 0, 1;
+    %pushi/vec4 0, 0, 1;
+    %store/vec4 v000002cc12a03040_0, 0, 1;
+    %delay 10000, 0;
+    %pushi/vec4 0, 0, 1;
+    %store/vec4 v000002cc12a03cc0_0, 0, 1;
+    %pushi/vec4 0, 0, 1;
+    %store/vec4 v000002cc12a03ae0_0, 0, 1;
+    %pushi/vec4 1, 0, 1;
+    %store/vec4 v000002cc12a03680_0, 0, 1;
+    %pushi/vec4 1, 0, 1;
+    %store/vec4 v000002cc12a02fa0_0, 0, 1;
+    %pushi/vec4 0, 0, 1;
+    %store/vec4 v000002cc12a03040_0, 0, 1;
+    %delay 10000, 0;
+    %pushi/vec4 0, 0, 1;
+    %store/vec4 v000002cc12a03cc0_0, 0, 1;
+    %pushi/vec4 1, 0, 1;
+    %store/vec4 v000002cc12a03ae0_0, 0, 1;
+    %pushi/vec4 0, 0, 1;
+    %store/vec4 v000002cc12a03680_0, 0, 1;
+    %pushi/vec4 1, 0, 1;
+    %store/vec4 v000002cc12a02fa0_0, 0, 1;
+    %pushi/vec4 0, 0, 1;
+    %store/vec4 v000002cc12a03040_0, 0, 1;
+    %delay 10000, 0;
+    %pushi/vec4 0, 0, 1;
+    %store/vec4 v000002cc12a03cc0_0, 0, 1;
+    %pushi/vec4 1, 0, 1;
+    %store/vec4 v000002cc12a03ae0_0, 0, 1;
+    %pushi/vec4 1, 0, 1;
+    %store/vec4 v000002cc12a03680_0, 0, 1;
+    %pushi/vec4 1, 0, 1;
+    %store/vec4 v000002cc12a02fa0_0, 0, 1;
+    %pushi/vec4 1, 0, 1;
+    %store/vec4 v000002cc12a03040_0, 0, 1;
+    %delay 10000, 0;
+    %end;
+    .thread T_0;
+# The file index is used to find the file name in the following table.
+:file_names 4;
+    "N/A";
+    "<interactive>";
+    "Control_tb.v";
+    "./..\Control.v";
