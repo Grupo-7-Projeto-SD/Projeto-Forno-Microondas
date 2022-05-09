@@ -24,10 +24,22 @@ module counter_level2(
 
     assign zero = zero_secones & zero_sectens & zero_mins;
 
+    // remove zeros na esquerda e conta segundos maiores que 59 corretamente
     always @* begin
-        mins_out <= (mins == 4'd0) ? 4'bzzzz : mins;
-        sec_tens_out <= (sec_tens == 4'd0 && mins == 4'd0) ? 4'bzzzz : sec_tens;
         sec_ones_out <= (sec_ones == 4'd0 && sec_tens == 4'd0 && mins == 4'd0) ? 4'bzzzz : sec_ones;
+
+        if (~enable) begin
+            mins_out <= (mins == 4'd0) ? 4'bzzzz : mins;
+            sec_tens_out <= (sec_tens == 4'd0 && mins == 4'd0) ? 4'bzzzz : sec_tens;
+        end else begin
+            if (sec_tens > 4'd5) begin
+                sec_tens_out <= sec_tens - 4'd6;
+                mins_out <= mins + 4'd1;
+            end else begin
+                sec_tens_out <= (sec_tens == 4'd0 && mins == 4'd0) ? 4'bzzzz : sec_tens;
+                mins_out <= (mins == 4'd0) ? 4'bzzzz : mins;
+            end
+        end
     end
 
 endmodule
