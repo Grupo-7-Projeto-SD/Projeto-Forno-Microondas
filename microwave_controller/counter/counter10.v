@@ -9,6 +9,10 @@ module counter10 (enable, clk, data, rstn, loadn, count, tc, zero);
     assign tc = (count == 4'd0) ? 1'b1 : 1'b0;
     assign zero = tc;
 
+    initial begin
+        count = 4'd0;
+    end
+
     always @(posedge clk, negedge rstn) begin
         // reset (clear) em nivel baixo (entrada assíncrona)
         if (~rstn) begin
