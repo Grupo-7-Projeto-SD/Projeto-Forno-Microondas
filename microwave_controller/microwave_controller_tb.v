@@ -30,12 +30,15 @@ module microwave_controller_tb;
     end
 
     initial begin
+        // condições iniciais
         #10;
         startn_tb = 1'b1;
         stopn_tb = 1'b1;
         clearn_tb = 1'b1;
         door_closed_tb = 1'b1;
 
+        // recebendo inputs (1:40)
+        $display("\nrecebendo inputs\n");
         #500 keypad_tb = 10'b00_0000_0000;
         #500 keypad_tb = 10'b00_0000_0010;
         #500 keypad_tb = 10'b00_0000_0000;
@@ -44,18 +47,33 @@ module microwave_controller_tb;
         #500 keypad_tb = 10'b00_0000_0001;
         #500 keypad_tb = 10'b00_0000_0000;
 
-        #10;
-        startn_tb = 1'b0; $display("\nstartn = 0\n");
+        // start pressionado
+        #10 startn_tb = 1'b0; $display("\nstart pressionado\n");
+        #20 startn_tb = 1'b1;
 
-        #10000 stopn_tb = 1'b0; $display("\nstopn = 0\n");
-        #5000 stopn_tb = 1'b1; $display("\nstopn = 1\n");
+        // stop pressionado
+        #10000 stopn_tb = 1'b0; $display("\nstop pressionado\n");
+        #20 stopn_tb = 1'b1;
 
-        #10000 clearn_tb = 1'b0; $display("\nclearn = 0\n");
-        #200 clearn_tb = 1'b1; $display("\nclearn = 1\n");
+        // start pressionado
+        #5000 startn_tb = 1'b0; $display("\nstart pressionado\n");
+        #20 startn_tb = 1'b1;
 
-        #10;
-        startn_tb = 1'b1; $display("\nstartn = 1\n");
+        // porta aberta
+        #5000 door_closed_tb = 1'b0; $display("\nporta aberta\n");
+        // porta fechada
+        #5000 door_closed_tb = 1'b1; $display("\nporta fechada\n");
 
+        // start pressionado
+        #200 startn_tb = 1'b0; $display("\nstart pressionado\n");
+        #20 startn_tb = 1'b1;
+
+        // clear pressionado
+        #10000 clearn_tb = 1'b0; $display("\nclear pressionado\n");
+        #20 clearn_tb = 1'b1;
+
+        // recebendo inputs (1:90)
+        $display("\nrecebendo inputs\n");
         #500 keypad_tb = 10'b00_0000_0000;
         #500 keypad_tb = 10'b00_0000_0010;
         #500 keypad_tb = 10'b00_0000_0000;
@@ -64,8 +82,9 @@ module microwave_controller_tb;
         #500 keypad_tb = 10'b00_0000_0001;
         #500 keypad_tb = 10'b00_0000_0000;
 
-        #10;
-        startn_tb = 1'b0; $display("\nstartn = 0\n");
+        // start pressionado
+        #10 startn_tb = 1'b0; $display("\nstart pressionado\n");
+        #20 startn_tb = 1'b1;
 
         #700;
 
